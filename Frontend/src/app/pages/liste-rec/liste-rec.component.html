@@ -1,0 +1,114 @@
+<!-- Liste des Réclamations -->
+<h1>Liste des Réclamations</h1>
+<div class="card">
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Ref Réclamation</th>
+            <th>Moyen de Paiement</th>
+            <th>Description</th>
+            <th>État</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reclamation of reclamations">
+            <td>{{reclamation.idRec}}</td>
+            <td>{{reclamation.moyenPayement}}</td>
+            <td>{{reclamation.descpt}}</td>
+            <td>{{reclamation.etat}}</td>
+            <td>
+              <!-- Bouton Détail -->
+              <button type="button" class="btn btn-outline-primary" (click)="open(content, reclamation)">
+                Détail
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h3 class="modal-title">Détails de la Réclamation</h3>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <p><b>Ref :</b> {{selectedReclamation?.idRec}}</p>
+    <p><b>Moyen de Paiement :</b> {{selectedReclamation?.moyenPayement}}</p>
+    <p><b>Canal de Réception :</b> {{selectedReclamation?.canalReception}}</p>
+    <p><b>Service :</b> {{selectedReclamation?.servs}}</p>
+    <p><b>Mail :</b> {{selectedReclamation?.mail}}</p>
+    <p><b>Tel :</b> {{selectedReclamation?.telRec}}</p>
+    <p><b>Description :</b> {{selectedReclamation?.descpt}}</p>
+    <p><b>État :</b> {{selectedReclamation?.etat}}</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" [disabled]="selectedReclamation?.etat === 'Traité'" (click)="openConfirmationModal()">Supprimer</button>
+    <button type="button" class="btn btn-primary" [disabled]="selectedReclamation?.etat === 'Traité'" (click)="openEditModal()">Modifier</button>
+  </div>
+</ng-template>
+
+<!-- Modal de Confirmation -->
+<ng-template #confirmationModal let-modal>
+  <div class="modal-header">
+    <h3 class="modal-title">Confirmer la Suppression</h3>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <p>Êtes-vous sûr de vouloir supprimer cette réclamation ?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Cross click')">Non</button>
+    <button type="button" class="btn btn-danger" (click)="confirmDelete(modal)">Oui</button>
+  </div>
+</ng-template>
+
+<!-- Modal d'Édition -->
+<ng-template #editModal let-modal>
+  <div class="modal-header">
+    <h3 class="modal-title">Modifier la Réclamation</h3>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="submitEdit()" #editForm="ngForm">
+      <div class="mb-3">
+        <label for="canalReception" class="form-label">Canal de Réception</label>
+        <input type="text" id="canalReception" class="form-control" [(ngModel)]="selectedReclamation.canalReception" name="canalReception" required>
+      </div>
+      <div class="mb-3">
+        <label for="service" class="form-label">Service</label>
+        <select id="service" class="form-control" [(ngModel)]="selectedReclamation.servs" name="service" required>
+          <option value="" disabled>Choisissez un service</option>
+          <option value="monetique">Monétique</option>
+          <option value="STB_directe">STB Directe</option>
+          <option value="STB_net">STB Net</option>
+          <option value="web">Web</option>
+          <option value="autre_service">Autre Service</option>
+        </select>
+        <small class="form-text text-muted">Sélectionnez le service approprié.</small>
+      </div>
+      <div class="mb-3">
+        <label for="mail" class="form-label">Mail</label>
+        <input type="email" id="mail" class="form-control" [(ngModel)]="selectedReclamation.mail" name="mail" required>
+      </div>
+      <div class="mb-3">
+        <label for="telRec" class="form-label">Téléphone</label>
+        <input type="text" id="telRec" class="form-control" [(ngModel)]="selectedReclamation.telRec" name="telRec" required>
+      </div>
+      <div class="mb-3">
+        <label for="descpt" class="form-label">Description</label>
+        <textarea id="descpt" class="form-control" [(ngModel)]="selectedReclamation.descpt" name="descpt" required></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Cross click')">Annuler</button>
+        <button type="submit" class="btn btn-primary">Modifier</button>
+      </div>
+    </form>
+  </div>
+</ng-template>

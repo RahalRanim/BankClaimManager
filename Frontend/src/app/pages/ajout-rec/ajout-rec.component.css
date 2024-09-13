@@ -1,0 +1,128 @@
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.form-container {
+    max-width: 600px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.form-container:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.form-header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+    border-color: #007bff;
+}
+
+textarea.form-control {
+    resize: vertical;
+}
+
+select.form-control {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #ffffff;
+    padding: 10px;
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M7 10l5 5 5-5H7z" fill="%23007bff"%3E%3C/path%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+}
+
+select.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+    border-color: #007bff;
+}
+
+.form-text {
+    font-size: 0.875em;
+    color: #6c757d;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn-custom {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #0056b3;
+}
+
+.btn-reset {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-reset:hover {
+    background-color: #c82333;
+}
+
+h1{
+    font-size: 2.5rem; 
+    font-weight: bold; 
+    color: #007bff; 
+    text-align: center; 
+    padding: 10px;
+    border: 2px solid #007bff;
+    border-radius: 8px; 
+    background-color: #f9f9f9; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease; 
+    margin-bottom: 50px;
+  }
+  h1:hover {
+    color: #12044f; 
+    border-color: #ddd; 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }

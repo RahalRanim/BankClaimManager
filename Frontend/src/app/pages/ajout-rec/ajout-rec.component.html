@@ -1,0 +1,47 @@
+<h1>Ajouter une Réclamation</h1>
+<div class="container">
+    <div class="form-container">
+
+        <form>
+            <div class="form-group">
+                <label for="paymentMethod">Moyen de Paiement</label>
+                <input type="text" class="form-control" id="paymentMethod" name="paymentMethod" [(ngModel)]="reclamation.paymentMethod" placeholder="Carte/RIB/Wallet..." required>
+            </div>
+            <div class="form-group">
+                <label for="service">Service</label>
+                <select class="form-control" id="service" name="service" [(ngModel)]="reclamation.service" required>
+                    <option value="" disabled selected>Choisissez un service</option>
+                    <option value="monetique">Monétique</option>
+                    <option value="STB_directe">STB Directe</option>
+                    <option value="STB_net">STB Net</option>
+                    <option value="web">Web</option>
+                    <option value="autre_service">Autre Service</option>
+                </select>
+                <small class="form-text text-muted">Sélectionnez le service approprié.</small>
+            </div>
+            <div class="form-group">
+                <label for="receptionChannel">Canal de Réception</label>
+                <input type="text" class="form-control" id="receptionChannel" name="receptionChannel" [(ngModel)]="reclamation.receptionChannel" placeholder="Email/Téléphone/Autre...">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" name="email" [(ngModel)]="reclamation.email" placeholder="Votre E-mail">
+            </div>
+            <div class="form-group">
+                <label for="tel">Tel</label>
+                <input type="text" class="form-control" id="tel" name="tel" [(ngModel)]="reclamation.tel" placeholder="Votre numéro de téléphone">
+            </div>
+            
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" name="description" [(ngModel)]="reclamation.description" rows="4" placeholder="Décrivez votre réclamation ici..."></textarea>
+            </div>
+            <div class="form-actions">
+                <button type="reset" class="btn btn-reset">Annuler</button>
+                <button type="button" (click)="onSubmit()" class="btn btn-custom">Ajouter</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+

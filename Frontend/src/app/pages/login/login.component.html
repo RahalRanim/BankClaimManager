@@ -1,0 +1,14 @@
+<div class="parent">
+    <div class="wrapper">
+        <form class="login">
+          <p class="title">Gestion de Réclamation</p>
+          <input type="text" placeholder="Email" [(ngModel)]="loginObj.login" name="login" id="login" autofocus/>
+          <i class="fa fa-user"></i>
+          <input type="password" [(ngModel)]="loginObj.mtp" name="mtp" id="mtp" placeholder="Mot de passe" />
+          <i class="fa fa-key"></i>
+          <a href="#">Mot de passe oublié?</a>
+          <i class="spinner"></i>
+          <button type="button" class="state" (click)="onLogin()">Connexion</button>
+        </form>
+    </div>    
+</div>

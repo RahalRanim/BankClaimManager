@@ -1,0 +1,36 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  position: relative;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  background: #f4f7fa;
+}
+.card{
+  display: flex;
+  flex-direction: column;
+  border-radius: .5rem;
+  background-color: #fff;
+  margin: 1.25rem 0 1.25rem 0;
+  box-shadow: 0 .25rem .5rem #e6edef;
+  color: #495057;
+}
+.card .card-head{
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #e6edef;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.card .card-body{
+  padding: 1rem 1.5rem;
+}
+h1 {
+	text-align: center;
+  font-size: 60px;
+  font-weight: bold;
+  color: rgb(47, 47, 158);
+}
